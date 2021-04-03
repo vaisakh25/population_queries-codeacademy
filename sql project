@@ -1,0 +1,19 @@
+select * from countries;
+
+select * from population_years;
+
+select count(*) from countries where continent = 'Africa';
+
+select sum(population) as sum_pop from countries left join population_years on countries.id = population_years.country_id where continent = 'Oceania' and year = 2005;
+
+select avg(population) as avg_pop from countries left join population_years on countries.id = population_years.country_id where continent = 'South America' and year = 2003;
+
+select name, min(population) from population_years join countries on countries.id = population_years.country_id
+where year = 2007;
+
+select avg(population) as avg_pop_pol from countries left join population_years on countries.id = population_years.country_id where name = 'Poland';
+
+select count(*) from countries where name like '%The%';
+
+select sum(population),continent from population_years join countries on countries.id = population_years.country_id  where year = 2010 group by continent order by 1 desc;
+
